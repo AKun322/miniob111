@@ -34,12 +34,14 @@ public:
   {
     const char *strings[] = {"show tables;",
         "desc `table name`;",
-        "create table `table name` (`column name` `column type`, ...);",
+        "create table `table name` (id int);",
         "create index `index name` on `table` (`column`);",
         "insert into `table` values(`value1`,`value2`);",
         "update `table` set column=value [where `column`=`value`];",
         "delete from `table` [where `column`=`value`];",
-        "select [ * | `columns` ] from `table`;"};
+        "select [ * | `columns` ] from `table`;",
+        "drop table `table name`;"
+        };
 
     auto oper = new StringListPhysicalOperator();
     for (size_t i = 0; i < sizeof(strings) / sizeof(strings[0]); i++) {
